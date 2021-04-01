@@ -5,6 +5,8 @@ import router from './router';
 import { IonicVue } from '@ionic/vue';
 import store from './store'
 
+import 'vue-tel-input/dist/vue-tel-input.css'
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
 
@@ -20,22 +22,28 @@ import '@ionic/vue/css/text-alignment.css';
 import '@ionic/vue/css/text-transformation.css';
 import '@ionic/vue/css/flex-utils.css';
 import '@ionic/vue/css/display.css';
-
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap'
+import 'qrious'
+import VuePhoneNumberInput from 'vue-phone-number-input';
+import 'vue-phone-number-input/dist/vue-phone-number-input.css';
  
-
 /* Theme variables */
 import './theme/variables.css';
+import './theme/action.css'
 import './theme/core.css'
 import BaseLayout from './components/Base/BaseLayout'
+import '@/actionSheet'
 
 
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
-  .use(store)
+  .use(store);
   
-
+app.component('vue-phone-number-input',VuePhoneNumberInput)
 app.component('base-layout', BaseLayout ) 
 router.isReady().then(() => {
+  
   app.mount('#app');
 });

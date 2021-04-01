@@ -93,6 +93,9 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-step-850: #d9d9d9;
   --ion-color-step-900: #e6e6e6;
   --ion-color-step-950: #f2f2f2;
-
+  --label-ios-text-color: blue;
+--label-md-text-color: blue;
+--label-ios-text-color-focused: blue;
+--label-md-text-color-focused: blue;
   --ion-toolbar-color:var(--ion-color-primary-contrast)
 }

@@ -16,7 +16,9 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vue/no-deprecated-slot-attribute': 'off',
     'vue/no-unused-component':'off',
-    'no-unused-vars':'off'
+    'no-unused-vars':'off',
+    'vue/no-unused-components':'off',
+    'no-undef':'off'
   },
   overrides: [
     {

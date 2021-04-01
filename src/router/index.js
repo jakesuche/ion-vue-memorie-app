@@ -1,26 +1,38 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 // import { RouteRecordRaw } from 'vue-router';
-import MemoriesPage from '../pages/MemoriesPage.vue'
+
 
 
 const routes = [
   {
     path: '/',
-    redirect: '/memories'
+    redirect: '/home'
   },
   {
-    path: '/memories',
-    name: 'Home',
-    component: MemoriesPage
+    path:'/home',
+    component:()=>import('../pages/home.vue')
   },
   {
-    path:'/memories/:id',
-    component: () => import('../pages/MemoryDetail.vue')
+    path:'/login',
+    component:()=>import('../pages/loginPage.vue')
   },
   {
-    path:'/memories/add',
-    component:() => import ('../pages/AddMemoryPage.vue')
+    path:'/register',
+    component:()=>import('../pages/RegisterPage.vue')
+  },
+  {
+    path:'/dashboard',
+    component:()=>import('../pages/dashBoard.vue')
+  },
+  {
+    path:'/packages',
+    component:()=>import('../pages/packages.vue')
+  },
+  {
+    path:'/customer',
+    component:()=>import('@/components/Modals/CreateCustomerModal.vue')
   }
+
 ]
 
 const router = createRouter({
