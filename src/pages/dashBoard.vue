@@ -101,6 +101,7 @@
           </ion-row>
         </ion-grid>
       </ion-card>
+    
     </ion-content>
     <!-- <ion-fab horizontal="end"  vertical="bottom" slot="fixed">
       <ion-fab-button @click="presentActionSheet()">
@@ -115,7 +116,7 @@
         <ion-fab-list side="top" >
           <ion-fab-button color="light">
             <!-- <ion-icon name="logo-facebook"></ion-icon> -->
-            <img style="weight:50px" src='/assets/icon/lorry.png'>
+            <img style="weight:50px" src='/assets/icon/lorry.png'>1
           </ion-fab-button>
            <ion-fab-button color="light">
             <ion-icon name="logo-facebook"></ion-icon>
@@ -157,6 +158,7 @@ import {
   IonMenuButton,
   actionSheetController,
   modalController,
+  IonicSafeString
 } from "@ionic/vue";
 import {
   cardOutline,
@@ -174,6 +176,7 @@ import QRious from 'qrious';
 
 import '@/theme/action.css'
 import CreateCustomerModal from "@/components/Modals/CreateCustomerModal.vue";
+import mcxDialog from "mcx-dialog-mobile"
 export default {
   data() {
     return {
@@ -188,14 +191,15 @@ export default {
         age:'26',
         time:'time'
 
-      }
+      },
+      IonicSafeString
      
     };
   },
   
   mounted() {
 
-
+   
      EventBus().emitter.on("closeModal", (data) => {
       this.closeModal();
       console.log("text-event", data);
@@ -239,13 +243,18 @@ export default {
   },
     
     async presentActionSheet() {
+    let inputNode = document.createElement("input");
+    inputNode.setAttribute("type", "file");
+    inputNode.setAttribute("accept", "image/png, image/jpg");
+    inputNode.setAttribute("style", "position: relative; z-index: 99999; width: 100%; height: 100%; opacity: 0");
+    inputNode.addEventListener("change", (event) => { this.loadImageFromDevice2(event) });
       const actionSheet = await actionSheetController.create({
         header: "Albums",
         cssClass: "custome_css",
           icon:"<img src='/assets/icon/lorry.png'>",
         buttons: [
           {
-            text: "Customer",
+            text: "annekd",
             cssClass:'EditIcon',
            
     icon:"<img src='/assets/icon/lorry.png'>",
@@ -255,7 +264,7 @@ export default {
             },
           },
           {
-            text: "Item",
+            text: new IonicSafeString('<ion-button>Hello!</ion-button>'),
             icon:"<img src='/assets/icon/lorry.png'>",
             cssClass:'custome_css',
             handler: () => {
@@ -288,7 +297,7 @@ export default {
           },
         ],
       });
-      return actionSheet.present();
+      return actionSheet.present()
     },
 
     async openModal() {
@@ -318,7 +327,7 @@ export default {
 }
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
 ion-toolbar {
-  --background: #0000ff85;
+  --background: #343a40;
 }
 .menu-icon {
   font-size: 35px;

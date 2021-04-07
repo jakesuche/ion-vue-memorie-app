@@ -233,8 +233,9 @@ export default {
     showSocial() {
       this.showAddSocial = true;
     },
-    closeModal(){
-      EventBus().emitter.emit('closeModal',true)
+    async closeModal(){
+      let modal = await modalController.dismiss()
+      // EventBus().emitter.emit('closeModal',true)
 
     },
     async openModal(){
@@ -249,7 +250,7 @@ export default {
 
 <style scoped>
 ion-toolbar {
-  --background: #0000ff85;
+  --background: #343a40;
 }
 ion-input {
   --padding-start: 20px;

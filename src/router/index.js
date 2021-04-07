@@ -31,6 +31,26 @@ const routes = [
   {
     path:'/customer',
     component:()=>import('@/components/Modals/CreateCustomerModal.vue')
+  },
+  {
+    path:'/customerdetail',
+    component:()=>import('../pages/CustomersDetails.vue')
+  },
+  {
+    path:'/allcustomers',
+    component:()=>import('../pages/allCustomers.vue')
+  },
+  {
+    path:'/invoices',
+    component:()=>import('../pages/allinvoice.vue')
+  },
+  {
+    path:'/items',
+    component:()=>import('../pages/items.vue')
+  },
+  {
+    path:'/createinvoice',
+    component:()=>import('../pages/createInvoice.vue')
   }
 
 ]

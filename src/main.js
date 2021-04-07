@@ -27,6 +27,8 @@ import 'bootstrap'
 import 'qrious'
 import VuePhoneNumberInput from 'vue-phone-number-input';
 import 'vue-phone-number-input/dist/vue-phone-number-input.css';
+import sweetAlert from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css';
  
 /* Theme variables */
 import './theme/variables.css';
@@ -36,9 +38,12 @@ import BaseLayout from './components/Base/BaseLayout'
 import '@/actionSheet'
 
 
+
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
+  .use(sweetAlert)
+ 
   .use(store);
   
 app.component('vue-phone-number-input',VuePhoneNumberInput)

@@ -20,22 +20,66 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-       <ion-segment :value='0' ref="ion-segment"  :swipe-gesture="true" >
-        <ion-segment-button :value="i" v-for="(label,i) in labels" :key="i" @click="segmentSelected(i)">
-          <ion-label>{{label}}</ion-label>
+      <ion-segment :value="0" ref="ion-segment" :swipe-gesture="true">
+        <ion-segment-button
+          :value="i"
+          v-for="(label, i) in labels"
+          :key="i"
+          @click="segmentSelected(i)"
+        >
+          <ion-label>{{ label }}</ion-label>
         </ion-segment-button>
-        
       </ion-segment>
-      
-      <ion-slides ref="slides"  @ionSlideDidChange="ionSlideDidChange($event)">
-         <ion-slide v-for="(n,i) in labels" :key="i">
-          <!-- <img src=""/> -->
-          <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_aBYmBC.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-          <h5 style="opacity:0.8">There are no entries on your list</h5>
-          
+
+      <ion-slides ref="slides" @ionSlideDidChange="ionSlideDidChange($event)">
+        <ion-slide  >
+          <ion-card>
+           
+
+            <ion-card-content> </ion-card-content>
+            <ion-card-header>
+              <ion-card-title>
+                <h5 style="opacity:0.8">There are no entries on your list</h5>
+              </ion-card-title>
+            </ion-card-header>
+          </ion-card>
         </ion-slide>
-      
-       
+        <ion-slide class="customer-slide" >
+          <ion-card>
+          
+            <img src="@/theme/gifs/ppackageStack.gif"/>
+          
+            <ion-card-header class="customer-slide">
+              <ion-card-title>
+                <h5 style="opacity:0.8">There are no entries on your list</h5>
+              </ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-slide>
+          <ion-slide class="customer-slide" >
+          <ion-card>
+           
+            <img src="@/theme/gifs/ppackageStack.gif"/>
+          
+            <ion-card-header class="customer-slide">
+              <ion-card-title>
+                <h5 style="opacity:0.8">There are no entries on your list</h5>
+              </ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-slide>
+         <ion-slide>
+          <ion-card>
+           
+            <img src="@/theme/gifs/deliveryvan.gif"/>
+            
+            <ion-card-header>
+              <ion-card-title>
+                <h5 style="opacity:0.8">There are no entries on your list</h5>
+              </ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-slide>
       </ion-slides>
     </ion-content>
 
@@ -62,6 +106,9 @@ import {
   IonList,
   IonLabel,
   actionSheetController,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
 } from "@ionic/vue";
 import {
   cardOutline,
@@ -79,16 +126,16 @@ export default {
       cardOutline,
       addOutline,
       menuSharp,
-      labels:['ALL','PACKED','SHIPPED','DELIVERED']
+      labels: ["ALL", "PACKED", "SHIPPED", "DELIVERED"],
     };
   },
   mounted() {
-    console.log(this.$refs['slides'].childNode)
+    console.log(this.$refs["slides"].childNode);
   },
   components: {
     // DessetModal,
     IonCard,
-  IonList,
+    IonList,
     IonMenuButton,
     IonPage,
     IonTitle,
@@ -102,27 +149,29 @@ export default {
     IonGrid,
     IonCol,
     IonText,
-    IonLabel
+    IonLabel,
+    IonCardContent,
+    IonCardHeader,
+    IonCardTitle,
   },
 
   methods: {
     ionSlideDidChange(event) {
-      this.$refs['slides'].getActiveIndex().then((res)=>{
-        this.$refs['ion-segment'].value = res
-      })
-      
+      this.$refs["slides"].getActiveIndex().then((res) => {
+        this.$refs["ion-segment"].value = res;
+      });
     },
-    segmentSelected(i){
-      this.$refs['slides'].slideTo(i)
-    }
+    segmentSelected(i) {
+      this.$refs["slides"].slideTo(i);
+    },
   },
 };
 </script>
 
 <style scoped>
-lottie-player{
-      margin-left: 50px;
-    margin-top: 40px;
+lottie-player {
+  margin-left: 50px;
+  margin-top: 40px;
 }
 .action-sheet-wrapper.sc-ion-action-sheet-md {
   margin-left: unset;
@@ -136,7 +185,7 @@ lottie-player{
 }
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
 ion-toolbar {
-  --background: #0000ff85;
+  --background: #343a40;
 }
 .menu-icon {
   font-size: 35px;
@@ -154,6 +203,7 @@ div.card-titles {
 }
 ion-card {
   border-radius: 10px;
+  box-shadow:none;
 }
 ion-card-title {
   color: black;
@@ -192,41 +242,43 @@ img {
   border-left: #fd2626 2px solid;
 }
 
-
-
-
 /* // css for slide */
-  ion-slides {
-      height: 100%;
-    }
+ion-slides {
+  height: 100%;
+}
 
-    .swiper-slide {
-      display: block;
-    }
+.swiper-slide {
+  display: block;
+}
 
-    .swiper-slide h2 {
-      margin-top: 2.8rem;
-    }
+.swiper-slide h2 {
+  margin-top: 2.8rem;
+}
 
-    .swiper-slide img {
-      max-height: 50%;
-      max-width: 80%;
-      margin: 60px 0 40px;
-      pointer-events: none;
-    }
 
-    b {
-      font-weight: 500;
-    }
+.swiper-slide img {
+    height: 30%;
+    width: 100%;
+    margin: 0px 0 0px;
+    pointer-events: none;
+}
 
-    p {
-      padding: 0 40px;
-      font-size: 14px;
-      line-height: 1.5;
-      color: var(--ion-color-step-600, #60646b);
-    }
+b {
+  font-weight: 500;
+}
 
-    p b {
-      color: var(--ion-text-color, #000000);
-    }
+p {
+  padding: 0 40px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ion-color-step-600, #60646b);
+}
+
+p b {
+  color: var(--ion-text-color, #000000);
+}
+
+.customer-slide{
+  background:#f3f3f5ff
+}
 </style>
