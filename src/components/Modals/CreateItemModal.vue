@@ -281,6 +281,7 @@ export default {
   },
   
   methods: {
+    
     checked(e) {
       console.log(e.detail.value);
       this.form.customerType = e.detail.value;

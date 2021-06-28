@@ -1,13 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-  <string name="app_name">Memories</string>
-  <string name="title_activity_main">Memories</string>
-  <string name="package_name">com.memories.myapp</string>
-  <string name="custom_url_scheme">com.memories.myapp</string>
-  <string name="ionic_app_id">d1243de4</string>
-  <string name="ionic_channel_name">Master</string>
-  <string name="ionic_update_method">auto</string>
-  <string name="ionic_max_versions">2</string>
-  <string name="ionic_min_background_duration">30</string>
-  <string name="ionic_update_api">https://api.ionicjs.com</string>
+    <string name="app_name">envitrov1</string>
+    <string name="title_activity_main">envitrov1</string>
+    <string name="package_name">com.envitro1.app</string>
+    <string name="custom_url_scheme">com.envitro1.app</string>
 </resources>

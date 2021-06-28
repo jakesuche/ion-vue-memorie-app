@@ -39,13 +39,14 @@ import '@/actionSheet'
 
 
 
+
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
   .use(sweetAlert)
  
-  .use(store);
-  
+  .use(store)
+
 app.component('vue-phone-number-input',VuePhoneNumberInput)
 app.component('base-layout', BaseLayout ) 
 router.isReady().then(() => {

@@ -1,13 +1,10 @@
 <template>
-  <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-back-button default-href="allcustomers"></ion-back-button>
-        </ion-buttons>
-        <ion-title>Jake Chidi</ion-title>
-      </ion-toolbar>
-    </ion-header>
+<base-layout PageTitle="Jake Uche">
+    <template v-slot:ion-menu-btn>
+      <ion-back-button default-href="allcustomers"></ion-back-button>
+    </template>
+  
+    
     <ion-segment ref="ion-segment" :value="0" color="danger" scrollable>
       <ion-segment-button
         layout="icon-end"
@@ -241,7 +238,7 @@
         </ion-slide>
       </ion-slides>
     </ion-content>
-  </ion-page>
+</base-layout>
 </template>
 
 <script>

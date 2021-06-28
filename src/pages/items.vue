@@ -1,24 +1,8 @@
 <template>
-  <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button color="light"></ion-menu-button>
-          <!-- <ion-button>
-            <ion-icon class="menu-icon" :icon="menuSharp"></ion-icon>
-          </ion-button> -->
-        </ion-buttons>
-
-        <ion-title class=" " id="">
-          <ion-text>
-            Active Items 
-          </ion-text>
-        </ion-title>
-        <!-- <ion-buttons slot="end">
-          <slot name="actions-end"></slot>
-        </ion-buttons> -->
-      </ion-toolbar>
-    </ion-header>
+  <base-layout PageTitle="All item">
+    <template v-slot:ion-menu-btn>
+      <ion-menu-button color="light"></ion-menu-button>
+    </template>
     <ion-content>
       <ion-hearder>
         <ion-searchbar></ion-searchbar>
@@ -47,7 +31,7 @@
     </ion-content>
 
     <!-- ion menu here -->
-  </ion-page>
+  </base-layout>
 </template>
 
 <script>

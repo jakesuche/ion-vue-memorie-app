@@ -1,4 +1,4 @@
-package com.memories.myapp;
+package com.envitro1.app;
 
 import android.os.Bundle;
 

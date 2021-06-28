@@ -1,3 +1,4 @@
+
 <template>
   <ion-menu content-id="main-content" type="overlay">
     <div class="menu-top">
@@ -19,13 +20,13 @@
       <ion-list id="inbox-list">
          <ion-menu-toggle >
           <ion-item
-           
+           class="hydrated"
             @click="selectedIndex = 'dashboard'; $router.push('/dashboard')"
             router-direction="root"
             router-link="/dashboard"
             lines="none"
             detail="false"
-            class="hydrated"
+            
             :class="{ selected: selectedIndex === 'dashboard' }"
           >
             <ion-icon slot="start" :icon="homeSharp"></ion-icon>
@@ -38,7 +39,7 @@
            
             lines="none"
             detail="false"
-            class="hydrated"
+           
             :class="{ selected: selectedIndex === 'item' }"
           >
             <ion-icon slot="start" :icon="basketSharp"></ion-icon>
@@ -324,7 +325,7 @@ ion-menu.md ion-note {
 }
 
 ion-menu.md ion-list#inbox-list {
-  /* border-bottom: 1px solid var(--ion-color-step-150, #d7d8da); */
+   border-bottom: 1px solid var(--ion-color-step-150, #d7d8da); 
 }
 
 ion-menu.md ion-list#inbox-list ion-list-header {
@@ -418,4 +419,11 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 }
+
+ion-item.item-has-focus > ion-label{
+  color: red !important;
+}
 </style>
+
+
+ 

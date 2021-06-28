@@ -1,24 +1,8 @@
 <template>
-  <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button color="light"></ion-menu-button>
-          <!-- <ion-button>
-            <ion-icon class="menu-icon" :icon="menuSharp"></ion-icon>
-          </ion-button> -->
-        </ion-buttons>
-
-        <ion-title class=" " id="">
-          <ion-text>
-            All Invoices
-          </ion-text>
-        </ion-title>
-        <!-- <ion-buttons slot="end">
-          <slot name="actions-end"></slot>
-        </ion-buttons> -->
-      </ion-toolbar>
-    </ion-header>
+  <base-layout PageTitle="All invoices">
+    <template v-slot:ion-menu-btn>
+      <ion-menu-button color="light"></ion-menu-button>
+    </template>
     <ion-content>
       <ion-hearder>
         <ion-searchbar></ion-searchbar>
@@ -33,7 +17,6 @@
           <ion-row>
             <ion-col size="12">
               <ion-button
-                
                 shape="round"
                 @click="createNewCustomer"
                 style="backgroud:#343a40"
@@ -47,12 +30,14 @@
     </ion-content>
 
     <!-- ion menu here -->
-  </ion-page>
+  </base-layout>
 </template>
 
 <script>
 import CreateCustomer from "@/components/Modals/CreateCustomerModal.vue";
-import soundClick from "@/directives/clickSound/buttonClick.mp3";
+import soundClick from "@/directives/clickSound/buttonClick.mp3"
+
+
 
 import {
   IonPage,
@@ -85,7 +70,6 @@ import {
   share,
 } from "ionicons/icons";
 export default {
- 
   data() {
     return {
       cardOutline,
@@ -123,8 +107,9 @@ export default {
     },
     async createNewCustomer() {
       this.playSound();
-      this.$router.push('/createinvoice')
+      this.$router.push("/createinvoice");
     },
+  
   },
 };
 </script>

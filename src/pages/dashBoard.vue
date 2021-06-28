@@ -1,25 +1,10 @@
 <template>
-  <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button color="light"></ion-menu-button>
-          <!-- <ion-button>
-            <ion-icon class="menu-icon" :icon="menuSharp"></ion-icon>
-          </ion-button> -->
-        </ion-buttons>
-
-        <ion-title class="ion-text-center " id="ion-text-center">
-          <ion-text>
-            Company
-          </ion-text>
-        </ion-title>
-        <!-- <ion-buttons slot="end">
-          <slot name="actions-end"></slot>
-        </ion-buttons> -->
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
+ <base-layout  PageTitle="Dashboard">
+ <template v-slot:ion-menu-btn>
+   <ion-menu-button color="light"></ion-menu-button>
+  </template>
+ 
+     <ion-content>
       <div class="mb-3">
         <h4 class="sale-activity">
           Sales Activity
@@ -102,7 +87,7 @@
         </ion-grid>
       </ion-card>
     
-    </ion-content>
+    
     <!-- <ion-fab horizontal="end"  vertical="bottom" slot="fixed">
       <ion-fab-button @click="presentActionSheet()">
         <ion-icon :icon="addOutline"></ion-icon>
@@ -110,7 +95,7 @@
       <ion-fab-list side="start"> </ion-fab-list>
     </ion-fab> -->
     <ion-fab horizontal="end" vertical="bottom" slot="fixed" >
-        <ion-fab-button>
+        <ion-fab-button @click="presentPane">
           <ion-icon :icon="addOutline"></ion-icon>
         </ion-fab-button>
         <ion-fab-list side="top" >
@@ -132,10 +117,9 @@
           </ion-fab-button>
         </ion-fab-list>
       </ion-fab>
-    
+       </ion-content>
 
-    <!-- ion menu here -->
-  </ion-page>
+  </base-layout>
 </template>
 
 
@@ -173,6 +157,7 @@ import {
 import EventBus from "@/EventBus";
 import Drawer from "vue-simple-drawer"
 import QRious from 'qrious';
+import { CupertinoPane } from 'cupertino-pane';
 
 import '@/theme/action.css'
 import CreateCustomerModal from "@/components/Modals/CreateCustomerModal.vue";
@@ -192,12 +177,15 @@ export default {
         time:'time'
 
       },
+      drawer: {},
       IonicSafeString
      
     };
   },
   
   mounted() {
+
+    
 
    
      EventBus().emitter.on("closeModal", (data) => {
@@ -234,6 +222,10 @@ export default {
   },
 
   methods: {
+    presentPane(){
+      this.drawer = new CupertinoPane('.panel', this.settings);
+        setTimeout(() => this.drawer.present({animate: true}));
+    },
   getQrl(){
     let qrcode = new QRious({
       size:1000,

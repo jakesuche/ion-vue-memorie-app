@@ -2,20 +2,42 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-back-button :default-href="DeFaultBack"></ion-back-button>
+        <ion-buttons slot="start">
+          <slot name="ion-menu-btn"></slot>
+          <!-- <ion-menu-button color="light"></ion-menu-button> -->
         </ion-buttons>
-         <ion-buttons slot="end" >
-           <slot name="actions-end"></slot>
-         </ion-buttons>
+        <ion-buttons slot="start">
+          <slot name="ion-back-button"></slot>
+          <!-- <ion-back-button :default-href="DeFaultBack"></ion-back-button> -->
+        </ion-buttons>
+        <ion-buttons slot="start">
+          <ion-button @click="$router.go(0)">
+            <ion-icon :icon="refreshCircleSharp">
+
+            </ion-icon>
+          </ion-button>
+        </ion-buttons>
+        
+       
         <ion-title>
           {{ PageTitle }}
         </ion-title>
+         <ion-buttons slot="end">
+          <slot name="actions-end1"></slot>
+        </ion-buttons>
+        <ion-buttons slot="end">
+         <slot name="actions-end2"></slot>
+        </ion-buttons>
+        <ion-buttons slot="end">
+         <slot name="actions-end3"></slot>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
-      <slot />
-    </ion-content>
+   
+    
+        <slot />
+     
+   
   </ion-page>
 </template>
 
@@ -27,24 +49,36 @@ import {
   IonToolbar,
   IonContent,
   IonBackButton,
-
-  IonButtons
+  IonButtons,
+  IonIcon
+  
 } from "@ionic/vue";
+import { refreshCircleSharp } from 'ionicons/icons'
 export default {
-  props: ["PageTitle","DeFaultBack"],
-created(){
-    console.log(this.PageTitle)
-},
+  data(){
+    return{
+      refreshCircleSharp
+    }
+  },
+  props: ["PageTitle", "DeFaultBack"],
+  created() {
+    console.log(this.PageTitle);
+  },
   components: {
-      IonBackButton,
+    IonBackButton,
     IonPage,
     IonTitle,
     IonHeader,
     IonToolbar,
     IonContent,
-     IonButtons
+    IonButtons,
+    IonIcon
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+  ion-toolbar {
+  --background: #343a40;
+}
+</style>

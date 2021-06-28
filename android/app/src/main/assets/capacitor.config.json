@@ -1,6 +1,6 @@
 {
-  "appId": "com.memories.myapp",
-  "appName": "Memories",
+  "appId": "com.envitro1.app",
+  "appName": "envitrov1",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "dist",

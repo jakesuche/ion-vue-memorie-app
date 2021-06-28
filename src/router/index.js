@@ -51,6 +51,10 @@ const routes = [
   {
     path:'/createinvoice',
     component:()=>import('../pages/createInvoice.vue')
+  },
+  {
+    path:'/pane',
+    component:()=>import('../pages/ex1.vue')
   }
 
 ]

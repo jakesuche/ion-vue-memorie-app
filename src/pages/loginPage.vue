@@ -18,6 +18,7 @@
       </div>
       <div class="btn-login">
         <ion-button
+          router-link="/dashboard"
           class="login-btn"
           expand="block"
           :strong="true"
